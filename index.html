@@ -34,7 +34,25 @@
         Every visitor sees something different!
     </footer>
 
+    <!-- Load scripts and add console log to help debugging -->
+    <script>
+        console.log("Starting page load...");
+    </script>
     <script src="stories.js"></script>
+    <script>
+        console.log("Stories loaded successfully.");
+    </script>
     <script src="script.js"></script>
+    <script>
+        console.log("Scripts loaded successfully.");
+        // Additional check if the setup is working
+        setTimeout(function() {
+            if (document.getElementById('loading-screen').style.display !== 'none') {
+                console.log("Loading screen still visible after 5 seconds - forcing removal");
+                document.getElementById('loading-screen').style.display = 'none';
+                document.getElementById('welcome-message').innerHTML = "<p>We experienced a delay in personalizing your content, but you can still enjoy one of our stories below.</p>";
+            }
+        }, 5000);
+    </script>
 </body>
 </html>
